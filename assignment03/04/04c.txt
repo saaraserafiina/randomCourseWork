@@ -1,0 +1,2 @@
+Nyt kun drink() on virtuaalifunktio ja luokkaan student on lisätty override drink() funktioon,
+drink funktio toteutetaan nyt studentin versiolla siitä. 

@@ -1,0 +1,1 @@
+Jos drink() funktiota kutsutaan Person-osoittimen läpi, se menee Person-luokan drink() funktioon, eikä Studentin drink() funktioon, koska olio on muotoa Person.

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast (© Saara Heikkilä.)</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!--navigation-->
+        <header>
+            <nav class="navbar">
+                <div class="nav-brand">Sääsovellus</div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="forecast.html" class="active">Ennuste</a></li>
+                    <li><a href="tamk.html">Tamk</a></li>
+                    <li><a href="about.html">Tietoa sivusta</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--navigation end-->
+
+        <!--content-->
+
+        <form id="search-form" class="search" role="search" aria-label="Hae kaupunki">
+            <label class="sr-only" for="city-input">Kaupunki</label>
+            <input id="city-input" type="text" placeholder="Hae kaupunki...">
+            <button id="search-button" type="submit">Hae</button>
+            <button id="locate-btn-forecast" type="button">📍 Paikanna</button>
+        </form>
+        <p id="location-error-forecast" class="unavailable"></p>
+
+        <div class="forecast-col">
+            <h2 class="section-heading">Viiden päivän ennuste
+                <span id="forecast-city-name" class="forecast-city"></span>
+            </h2>
+            <div id="forecast-container"></div>
+        </div>
+
+        <h2 class="section-heading">Lämpötilakaavio</h2>
+        <section class="chart-section">
+            <canvas id="weather-chart"></canvas>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <span> Sääsovellus</span>
+                <span>Sääsivu (Saara H.)</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import { setupLocateButton } from "./geolocation.js";
+        import { getDataAndUpdateUI } from "./script-forecast.js";
+
+        setupLocateButton(getDataAndUpdateUI);
+    </script>
+    <script src="script-forecast.js"></script>
+
+</body>
+</html>
